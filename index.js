@@ -8,12 +8,15 @@ import groupsRoute from "./routes/group.js";
 import studentsRoute from "./routes/students.js";
 import chekToken from "./middleware/checkToken.js";
 import cors from "cors";
-
-let app = express();
-
-app.use(cors());
-app.use(express.json());
 dotenv.config();
+
+const app = express();
+app.use(
+  cors({
+    origin: "https://lms-backend-coral-nine.vercel.app/",
+  }),
+);
+app.use(express.json());
 
 app.use(authRoute);
 app.use(chekToken);
@@ -32,7 +35,7 @@ mongoose
   });
 
 app.get("/", (req, res) => {
-  res.send("serv start")
+  res.send("serv start");
 });
 
-export default app
+export default app;
