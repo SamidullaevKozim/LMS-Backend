@@ -10,7 +10,7 @@ let route = express.Router();
 route.post("/register", async (req, res) => {
   try {
     let { name, email, password, role, teacher, group } = req.body;
-    let eUser =
+    let eUser = null ||
       (await Student.findOne({ email })) ||
       (await Teacher.findOne({ email })) ||
       (await Admin.findOne({ email }));
