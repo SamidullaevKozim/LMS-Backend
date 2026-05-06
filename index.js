@@ -11,11 +11,7 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://lms-backend-coral-nine.vercel.app/",
-  }),
-);
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.use(authRoute);
@@ -35,7 +31,7 @@ mongoose
   });
 
 app.get("/", (req, res) => {
-  res.send("serv start");
+  res.json([{ name: "test" }]);
 });
 
 export default app;
