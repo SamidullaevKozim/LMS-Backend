@@ -7,11 +7,11 @@ import adminsRoute from "./routes/admins.js";
 import groupsRoute from "./routes/group.js";
 import studentsRoute from "./routes/students.js";
 import chekToken from "./middleware/checkToken.js";
-import  cors from "cors"
+import cors from "cors";
 
 let app = express();
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 dotenv.config();
 
@@ -31,7 +31,8 @@ mongoose
     console.log(err.message);
   });
 
-app.listen(process.env.PORT, () => {
-  console.log("server starts");
+app.get("/", (req, res) => {
+  res.send("serv start")
 });
 
+export default app
